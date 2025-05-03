@@ -344,11 +344,11 @@ class Model:
 
     def __init__(
         self,
-        artifact_path=None,
-        run_id=None,
-        utc_time_created=None,
-        flavors=None,
-        signature=None,  # ModelSignature
+        artifact_path = None,
+        run_id = None,
+        utc_time_created = None,
+        flavors: Optional[dict[str, Any]] = None,
+        signature = None,  # ModelSignature
         saved_input_example_info: Optional[dict[str, Any]] = None,
         model_uuid: Union[str, Callable, None] = lambda: uuid.uuid4().hex,
         mlflow_version: Union[str, None] = mlflow.version.VERSION,
@@ -364,7 +364,7 @@ class Model:
         self.run_id = run_id
         self.artifact_path = artifact_path
         self.utc_time_created = str(utc_time_created or datetime.utcnow())
-        self.flavors = flavors if flavors is not None else {}
+        self.flavors = flavors or {}
         self.signature = signature
         self.saved_input_example_info = saved_input_example_info
         self.model_uuid = model_uuid() if callable(model_uuid) else model_uuid

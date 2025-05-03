@@ -142,7 +142,7 @@ def _overwrite_or_create_databricks_profile(
 
     Args:
         file_name: string, the file name of the databricks config file, usually `~/.databrickscfg`.
-        profile: dict, contains the authentiacation profile information.
+        profile: dict, contains the authentication profile information.
         profile_name: string, the name of the profile to be overwritten or created.
     """
     profile_name = f"[{profile_name}]"
@@ -169,9 +169,10 @@ def _overwrite_or_create_databricks_profile(
         del lines[start_index : end_index + 1]
 
     # Write the new profile to the top of the file.
-    new_profile = []
-    new_profile.append(profile_name + "\n")
-    new_profile.append(f"host = {profile['host']}\n")
+    new_profile = [
+        profile_name + "\n",
+        f"host = {profile['host']}\n"
+    ]
     if "token" in profile:
         new_profile.append(f"token = {profile['token']}\n")
     else:

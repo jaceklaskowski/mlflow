@@ -60,7 +60,7 @@ def get_artifact_uri(run_id, artifact_path=None, tracking_uri=None):
 
 # TODO: This would be much simpler if artifact_repo.download_artifacts could take the absolute path
 # or no path.
-def _get_root_uri_and_artifact_path(artifact_uri):
+def _get_root_uri_and_artifact_path(artifact_uri) -> (str, str):
     """Parse the artifact_uri to get the root_uri and artifact_path.
 
     Args:

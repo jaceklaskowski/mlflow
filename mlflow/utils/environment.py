@@ -212,8 +212,9 @@ def _mlflow_conda_env(  # noqa: D417
     additional_pip_deps=None,
     additional_conda_channels=None,
     install_mlflow=True,
-):
-    """Creates a Conda environment with the specified package channels and dependencies. If there
+) -> dict[str, str] | None:
+    """
+    Creates a Conda environment with the specified package channels and dependencies. If there
     are any pip dependencies, including from the install_mlflow parameter, then pip will be added to
     the conda dependencies. This is done to ensure that the pip inside the conda environment is
     used to install the pip dependencies.
@@ -228,9 +229,8 @@ def _mlflow_conda_env(  # noqa: D417
             packages.
 
     Returns:
-        None if path is specified. Otherwise, the a dictionary representation of the
+        None if path is specified. Otherwise, the dictionary representation of the
         Conda environment.
-
     """
     additional_pip_deps = additional_pip_deps or []
     mlflow_deps = (

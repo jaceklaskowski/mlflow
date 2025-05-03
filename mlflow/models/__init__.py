@@ -29,7 +29,7 @@ The built-in flavors are:
 - :py:mod:`mlflow.transformers`
 - :py:mod:`mlflow.xgboost`
 
-For details, see `MLflow Models <../models.html>`_.
+For details, see `MLflow Models <../../model>`_.
 """
 
 from mlflow.models.dependencies_schemas import set_retriever_schema

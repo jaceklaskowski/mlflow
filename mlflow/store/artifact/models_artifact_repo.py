@@ -76,7 +76,7 @@ class ModelsArtifactRepository(ArtifactRepository):
         return urllib.parse.urlparse(uri).scheme == "models"
 
     @staticmethod
-    def split_models_uri(uri):
+    def split_models_uri(uri) -> (str, str):
         """
         Split 'models:/<name>/<version>/path/to/model' into
         ('models:/<name>/<version>', 'path/to/model').
